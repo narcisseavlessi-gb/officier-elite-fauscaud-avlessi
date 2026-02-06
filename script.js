@@ -109,11 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    /*
     // Form submission
     const contactForm = document.querySelector('.contact-form');
     if(contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // e.preventDefault();
             
             // Get form data
             const formData = new FormData(this);
@@ -134,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
             this.reset();
         });
-    }
+    } */
     
     // Initialise le carrousel d'images
     initImageCarousel();
@@ -718,8 +719,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Validation de tous les champs
             const fields = this.querySelectorAll('input[required], textarea[required], select[required]');
             let isValid = true;
@@ -730,45 +729,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            if (!isValid) {
-                alert('Veuillez corriger les erreurs dans le formulaire.');
-                return;
-            }
-            
             // Vérifier la case à cocher
             const checkbox = this.querySelector('input[type="checkbox"]');
             if (!checkbox || !checkbox.checked) {
                 alert('Veuillez accepter que vos données soient traitées.');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                alert('Veuillez corriger les erreurs dans le formulaire.');
+                e.preventDefault(); // Empêche l'envoi SEULEMENT si validation échoue
                 return;
             }
             
-            // Récupérer les données du formulaire
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
+            // Si tout est valide, laisser Formspree envoyer
+            // NE PAS réinitialiser le formulaire !
+            // NE PAS afficher d'alerte de succès !
             
-            // Log pour débogage (à remplacer par un véritable envoi backend)
-            console.log('Formulaire soumis :', {
-                name: name,
-                email: email,
-                organization: formData.get('organization'),
-                subject: formData.get('subject'),
-                message: message
-            });
-            
-            // Message de succès
-            alert('Merci pour votre message ! Je vous répondrai par email dans les plus brefs délais.\n\nVous pouvez également envoyer directement par WhatsApp si vous préférez.');
-            
-            // Réinitialiser le formulaire
-            this.reset();
-            
-            // Réinitialiser les erreurs
-            this.querySelectorAll('.field-error').forEach(error => error.remove());
-            this.querySelectorAll('input, textarea, select').forEach(field => {
-                field.style.borderColor = '';
-            });
+            console.log('Formulaire validé, envoi à Formspree en cours...');
+            // Laisser Formspree gérer le reste
+
+            // Vérifie si le formulaire a été envoyé avec succès
+
+            if (window.location.search.includes('success=true')) {
+                alert('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
+                // Efface le paramètre de l'URL
+                history.replaceState({}, document.title, window.location.pathname);
+            }
         });
     }
 });
-
