@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez un officier de police d'élite pour des collaborations ou des échanges professionnels">
+    <title>Contact - Officier Élite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>OFFICIER ÉLITE</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="competences.html">Compétences</a>
+            <a href="missions.html">Missions</a>
+            <a href="formation.html">Formation</a>
+            <a href="apropos.html">À propos</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>Contact Professionnel</h1>
+        
+        <p style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Pour toute demande professionnelle, collaboration, invitation à une conférence, 
+            ou échange sur les meilleures pratiques en sécurité publique, n'hésitez pas à me contacter.
+        </p>
+        
+        <div class="cards-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <div>
+                <div class="card">
+                    <h2>Informations de contact</h2>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: #00b4ff; margin-bottom: 0.5rem;">Contact professionnel</h3>
+                        <p><strong>Email :</strong> <a href="mailto:fauscaudavlessi228@gmail.com">fauscaudavlessi228@gmail.com</a></p>
+                        <p><strong>Téléphone :</strong></p>
+                        <ul style="text-align: center;
+                                    list-style: none;">
+                            <li>+229 01 62 01 63 33</li>
+                            <li>+229 01 59 13 09 14</li>
+                        </ul>
+                        <p><strong>Adresse professionnelle :</strong><br>
+                        Direction Générale de la Police Républicaine<br>
+                        Avenue 5.080, Ganhi<br>
+                        5ème Arrondissement de Cotonou</p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: #00b4ff; margin-bottom: 0.5rem;">Disponibilités</h3>
+                        <p><strong>Réponse sous :</strong> 48 heures maximum</p>
+                        <p><strong>Conférences :</strong> Disponible sur invitation</p>
+                        <p><strong>Mentorat :</strong> Accompagnement de jeunes officiers</p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: #00b4ff; margin-bottom: 0.5rem;">Pour les urgences policières</h3>
+                        <p>Composez le <strong>166</strong></p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Ce formulaire n'est pas destiné aux signalements d'urgences</p>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 2rem;">
+                    <h3>Domaines de collaboration</h3>
+                    <ul style="margin-top: 1rem;">
+                        <li>Conférences et séminaires sur la sécurité publique</li>
+                        <li>Formation d'équipes de sécurité privée</li>
+                        <li>Consultation en gestion de crise</li>
+                        <li>Échanges inter-services et bonnes pratiques</li>
+                        <li>Recherche académique en criminologie</li>
+                        <li>Mentorat de jeunes professionnels</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <div class="card contact-form">
+                    <h2>Envoyez un message</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">Je vous répondrai dans les plus brefs délais</p>
+                    
+                    <form id="contactForm" action="https://formspree.io/f/xojakelq" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organisation</label>
+                            <input type="text" id="organization" name="organization" placeholder="Votre organisation (optionnel)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" name="subject" required style="width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: rgb(102, 101, 101); font-size: 1rem;">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="conference">Invitation à une conférence</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="formation">Demande de formation</option>
+                                <option value="consultation">Consultation professionnelle</option>
+                                <option value="mentorat">Demande de mentorat</option>
+                                <option value="other">Autre sujet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Décrivez votre demande en détail..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" required>
+                                <span>J'accepte que mes données soient traitées dans le cadre de cette demande de contact *</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+                
+                <div class="card" style="margin-top: 2rem; text-align: center;">
+                    <h3>Engagement de confidentialité</h3>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        Toutes les informations échangées sont traitées avec la plus stricte confidentialité, 
+                        conformément au règlement général sur la protection des données (RGPD) et aux règles 
+                        déontologiques de la profession.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Portfolio Officier Élite - Tous droits réservés</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Réalisé par <a href="https://narcisseavlessi-gb.github.io/portfolio-professionnel/" class="name" target="_blank">Narcisse G. AVLESSI</a>. Pour en savoir plus sur moi, cliquez <a href="https://narcisseavlessi-gb.github.io/portfolio-professionnel/" target="_blank">ici</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b0f17;
+    color: #f1f1f1;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(11, 15, 23, 0.95);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    color: #00b4ff;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: #00b4ff;
+    background: rgba(0, 180, 255, 0.1);
+}
+
+nav a.active {
+    color: #00b4ff;
+    border-bottom: 2px solid #00b4ff;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 5% 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #00b4ff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-content a {
+    text-decoration: none;
+}
+
+.hero img {
+    width: min(400px, 40vw);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 180, 255, 0.3);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Content Sections */
+.content {
+    padding: 6rem 5% 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content h1 {
+    color: #00b4ff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content h2 {
+    text-align: center;
+}
+
+.content p, .content li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background: linear-gradient(145deg, #151b29, #1a2235);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 180, 255, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 180, 255, 0.2);
+    border-color: rgba(0, 180, 255, 0.3);
+}
+
+.card h3 {
+    color: #00b4ff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+}
+
+/* List Styles */
+.skills-list, .missions-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills-list li, .missions-list li {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #00b4ff;
+    transition: transform 0.3s ease;
+}
+
+.skills-list li:hover, .missions-list li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Animation d'éclairage dynamique pour l'image hero */
+.hero-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-image-container img {
+    border-radius: 20px;
+    width: min(400px, 40vw);
+    position: relative;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite, 
+               pulseGlow 4s ease-in-out infinite;
+}
+
+/* Animation d'éclairage dynamique synchronisée avec le flottement */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(0, 180, 255, 0.3),
+            0 0 40px rgba(0, 180, 255, 0.2),
+            0 0 60px rgba(0, 180, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 40px rgba(0, 180, 255, 0.6),
+            0 0 80px rgba(0, 180, 255, 0.4),
+            0 0 120px rgba(0, 180, 255, 0.2),
+            0 0 160px rgba(0, 180, 255, 0.1);
+    }
+}
+
+/* Éclairage encore plus marqué pour l'image active */
+@keyframes intenseGlow {
+    0%, 100% {
+        filter: drop-shadow(0 5px 15px rgba(0, 180, 255, 0.4))
+                drop-shadow(0 10px 30px rgba(0, 180, 255, 0.3));
+        box-shadow: 
+            inset 0 0 20px rgba(0, 180, 255, 0.3),
+            0 0 30px rgba(0, 180, 255, 0.4),
+            0 0 60px rgba(0, 180, 255, 0.3),
+            0 0 100px rgba(0, 180, 255, 0.2);
+    }
+    50% {
+        filter: drop-shadow(0 10px 25px rgba(0, 180, 255, 0.7))
+                drop-shadow(0 20px 50px rgba(0, 180, 255, 0.5));
+        box-shadow: 
+            inset 0 0 40px rgba(0, 180, 255, 0.5),
+            0 0 60px rgba(0, 180, 255, 0.6),
+            0 0 120px rgba(0, 180, 255, 0.4),
+            0 0 200px rgba(0, 180, 255, 0.3);
+    }
+}
+
+/* Animation spéciale synchronisée avec le mouvement de flottement */
+@keyframes synchronizedGlow {
+    0% {
+        box-shadow: 
+            0 -10px 20px rgba(0, 180, 255, 0.3),
+            0 -20px 40px rgba(0, 180, 255, 0.2);
+        filter: brightness(1) contrast(1);
+    }
+    25% {
+        box-shadow: 
+            0 0 30px rgba(0, 180, 255, 0.5),
+            0 0 60px rgba(0, 180, 255, 0.3);
+        filter: brightness(1.05) contrast(1.05);
+    }
+    50% {
+        box-shadow: 
+            0 10px 40px rgba(0, 180, 255, 0.7),
+            0 20px 80px rgba(0, 180, 255, 0.5),
+            0 40px 160px rgba(0, 180, 255, 0.3);
+        filter: brightness(1.1) contrast(1.1);
+    }
+    75% {
+        box-shadow: 
+            0 0 30px rgba(0, 180, 255, 0.5),
+            0 0 60px rgba(0, 180, 255, 0.3);
+        filter: brightness(1.05) contrast(1.05);
+    }
+    100% {
+        box-shadow: 
+            0 -10px 20px rgba(0, 180, 255, 0.3),
+            0 -20px 40px rgba(0, 180, 255, 0.2);
+        filter: brightness(1) contrast(1);
+    }
+}
+
+/* Nouvelle animation combinée */
+@keyframes floatWithGlow {
+    0%, 100% {
+        transform: translateY(0px);
+        box-shadow: 
+            0 10px 30px rgba(0, 180, 255, 0.3),
+            0 20px 60px rgba(0, 180, 255, 0.2),
+            0 40px 120px rgba(0, 180, 255, 0.1);
+    }
+    25% {
+        transform: translateY(-10px);
+        box-shadow: 
+            0 15px 40px rgba(0, 180, 255, 0.4),
+            0 30px 80px rgba(0, 180, 255, 0.3),
+            0 60px 160px rgba(0, 180, 255, 0.2);
+    }
+    50% {
+        transform: translateY(-20px);
+        box-shadow: 
+            0 20px 50px rgba(0, 180, 255, 0.6),
+            0 40px 100px rgba(0, 180, 255, 0.4),
+            0 80px 200px rgba(0, 180, 255, 0.2),
+            0 0 0 1px rgba(0, 180, 255, 0.1);
+        filter: brightness(1.08) contrast(1.08);
+    }
+    75% {
+        transform: translateY(-10px);
+        box-shadow: 
+            0 15px 40px rgba(0, 180, 255, 0.4),
+            0 30px 80px rgba(0, 180, 255, 0.3),
+            0 60px 160px rgba(0, 180, 255, 0.2);
+    }
+}
+
+/* Effet de halo autour de l'image */
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 180, 255, 0.3) 0%,
+        rgba(0, 180, 255, 0.2) 25%,
+        rgba(0, 180, 255, 0.1) 50%,
+        transparent 70%
+    );
+    border-radius: 25px;
+    z-index: 0;
+    animation: haloPulse 6s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+    0%, 100% {
+        opacity: 0.5;
+        width: calc(100% + 40px);
+        height: calc(100% + 40px);
+    }
+    50% {
+        opacity: 0.8;
+        width: calc(100% + 60px);
+        height: calc(100% + 60px);
+    }
+}
+
+/* Classe pour l'animation intensifiée (peut être activée/désactivée via JS) */
+.image-glow-intense {
+    animation: floatWithGlow 6s ease-in-out infinite !important;
+}
+
+/* Version responsive */
+@media (max-width: 768px) {
+    .hero-image-container img {
+        animation: floatWithGlow 6s ease-in-out infinite;
+    }
+    
+    .hero-image-container::before {
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+    }
+    
+    @keyframes haloPulse {
+        0%, 100% {
+            opacity: 0.5;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+        }
+        50% {
+            opacity: 0.8;
+            width: calc(100% + 30px);
+            height: calc(100% + 30px);
+        }
+    }
+}
+
+
+/* Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00b4ff;
+    box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn {
+    background: linear-gradient(135deg, #00b4ff, #0077cc);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+}
+
+.next {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 180, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background: #05080f;
+    color: #888;
+    margin-top: 4rem;
+}
+
+.name {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.name:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /*
+        header {
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+        }
+    */
+    
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding-top: 10rem;
+    }
+    
+    .hero img {
+        width: min(300px, 80vw);
+    }
+    
+    .content {
+        padding: 5rem 1rem 3rem;
+    }
+}
+
+/* MODIFICATION POUR LE RESPONSIVE MOBILE DU FORMULAIRE DE CONTACT */
+
+/* Sur mobile (< 768px), forcer la disposition en colonne */
+@media (max-width: 768px) {
+    .contact .cards-grid {
+        grid-template-columns: 1fr !important; /* Forcer 1 seule colonne */
+        gap: 2rem !important;
+    }
+    
+    /* S'assurer que tous les éléments du formulaire s'empilent */
+    .contact .cards-grid > div {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    /* Si le formulaire utilise un conteneur spécifique */
+    .content .cards-grid[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Pour la page contact spécifiquement */
+    main.content .cards-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    /* Cibler spécifiquement les cartes de la page contact */
+    .contact-form,
+    .contact .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 2rem 0 !important;
+    }
+}
+
+/* Version encore plus stricte pour très petits écrans */
+@media (max-width: 576px) {
+    /* Assurer que TOUTES les cartes de contact s'empilent */
+    body[class*="contact"] .cards-grid,
+    .contact-page .cards-grid {
+        display: block !important;
+    }
+    
+    body[class*="contact"] .cards-grid > div,
+    .contact-page .cards-grid > div {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    
+    /* Rendre les formulaires entièrement responsives */
+    .contact-form {
+        padding: 1.5rem !important;
+    }
+    
+    /* Espacement entre les boutons */
+    .button-container {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+    
+    .button-container button {
+        width: 100% !important;
+    }
+}
